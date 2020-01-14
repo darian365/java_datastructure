@@ -1,6 +1,6 @@
-package linkedlist.questions;
+package lifei.linkedlist.questions;
 
-import linkedlist.NodeItem;
+import lifei.linkedlist.NodeItem;
 
 public class ReverseSingleLinkedList {
 
