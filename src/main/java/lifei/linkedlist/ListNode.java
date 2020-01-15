@@ -1,14 +1,14 @@
 package lifei.linkedlist;
 
-public class NodeItem {
+public class ListNode {
 
     public int num;
 
     public String data;
 
-    public NodeItem next;
+    public ListNode next;
 
-    public NodeItem(int num, String data) {
+    public ListNode(int num, String data) {
         this.num = num;
         this.data = data;
         this.next = null;

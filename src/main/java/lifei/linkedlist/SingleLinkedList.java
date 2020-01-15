@@ -3,9 +3,9 @@ package lifei.linkedlist;
 
 public class SingleLinkedList {
 
-    private NodeItem head = new NodeItem(0, "");
+    private ListNode head = new ListNode(0, "");
 
-    public NodeItem getHead() {
+    public ListNode getHead() {
         return head;
     }
 
@@ -16,9 +16,9 @@ public class SingleLinkedList {
      *一， 找到当前链表的最后一个节点，
      *二， 将最后一个节点的next指向x新的节点
      **/
-    public void add(NodeItem node) {
+    public void add(ListNode node) {
         // coz head节点是固定的，所以我们需要一个辅助节点从head开始遍历
-        NodeItem temp = head;
+        ListNode temp = head;
         
         while(true) {
             if (temp.next == null) {
@@ -37,9 +37,9 @@ public class SingleLinkedList {
      * 二，将新节点放到第一个比新节点序号大的位置
      * @param node
      */
-    public void addByOrder(NodeItem node) {
+    public void addByOrder(ListNode node) {
         // coz 需要一个辅助指针从头位置开始找插入到位置
-        NodeItem temp = head;
+        ListNode temp = head;
 
         // coz 需要temp位于要插入位置的前一个节点
         // if 已经存在序号，那么将不插入新节点
@@ -71,9 +71,9 @@ public class SingleLinkedList {
      * 二，将要更新节点的值更新为新节点的值
      * @param node
      */
-    public void update(NodeItem node) {
+    public void update(ListNode node) {
         // 需要一个辅助指针从头指针开始遍历
-        NodeItem temp = head;
+        ListNode temp = head;
 
         // 如果节点存在，flag会被set to be true
         boolean flag = false;
@@ -107,7 +107,7 @@ public class SingleLinkedList {
      */
     public void remove(int num) {
         // 需要一个辅助指针从头节点开始
-        NodeItem temp = head;
+        ListNode temp = head;
 
         // 如果节点存在，flag会被set to be true
         boolean flag = false;
@@ -138,7 +138,7 @@ public class SingleLinkedList {
             System.out.println("这是一个空的单向链表");
             return;
         }
-        NodeItem temp = head.next;
+        ListNode temp = head.next;
         System.out.println("单向链表的元素是：");
         while(true) {
             if (temp == null) {
@@ -151,10 +151,10 @@ public class SingleLinkedList {
 
     public static void main(String[] args) {
 
-        NodeItem n1 = new NodeItem(1, "杰伦");
-        NodeItem n2 = new NodeItem(2, "华健");
-        NodeItem n3 = new NodeItem(3, "志玲");
-        NodeItem n4 = new NodeItem(4, "英九");
+        ListNode n1 = new ListNode(1, "杰伦");
+        ListNode n2 = new ListNode(2, "华健");
+        ListNode n3 = new ListNode(3, "志玲");
+        ListNode n4 = new ListNode(4, "英九");
 
         SingleLinkedList sll = new SingleLinkedList();
         sll.add(n2);
@@ -174,8 +174,8 @@ public class SingleLinkedList {
         sll.list();
 
         System.out.println("更新节点开始 ：");
-        sll.update(new NodeItem(2, "建华"));
-        sll.update(new NodeItem(5, "建华~~"));
+        sll.update(new ListNode(2, "建华"));
+        sll.update(new ListNode(5, "建华~~"));
         sll.list();
 
         System.out.println("删除节点开始 ：");

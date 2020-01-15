@@ -1,6 +1,6 @@
 package lifei.linkedlist.questions;
 
-import lifei.linkedlist.NodeItem;
+import lifei.linkedlist.ListNode;
 import lifei.linkedlist.SingleLinkedList;
 
 public class FindLastKthNode {
@@ -11,13 +11,13 @@ public class FindLastKthNode {
      * @param head
      * @return
      */
-    public static int size(NodeItem head) {
+    public static int size(ListNode head) {
         if (head.next == null) {
             return 0;
         }
 
         int size = 0;
-        NodeItem curr = head.next;
+        ListNode curr = head.next;
 
         while (curr != null) {
             size++;
@@ -38,7 +38,7 @@ public class FindLastKthNode {
      * @param k
      * @return
      */
-    public static NodeItem findLastKthNode(NodeItem head, int k) {
+    public static ListNode findLastKthNode(ListNode head, int k) {
         if(head.next == null) {
             System.out.printf("是个空链表，无法找到第[%d]个节点", k);
             return null;
@@ -49,7 +49,7 @@ public class FindLastKthNode {
             System.out.printf("链表元素个数只有[%d]个，无法找到倒数第[%d]个节点\n", size, k);
             return null;
         }
-        NodeItem curr = head.next;
+        ListNode curr = head.next;
 
         for (int i = 0; i < size - k; i++) {
             curr = curr.next;
@@ -60,10 +60,10 @@ public class FindLastKthNode {
     }
 
     public static void main(String[] args) {
-        NodeItem n1 = new NodeItem(1, "杰伦");
-        NodeItem n2 = new NodeItem(2, "华健");
-        NodeItem n3 = new NodeItem(3, "志玲");
-        NodeItem n4 = new NodeItem(4, "英九");
+        ListNode n1 = new ListNode(1, "杰伦");
+        ListNode n2 = new ListNode(2, "华健");
+        ListNode n3 = new ListNode(3, "志玲");
+        ListNode n4 = new ListNode(4, "英九");
 
         SingleLinkedList sll = new SingleLinkedList();
 
