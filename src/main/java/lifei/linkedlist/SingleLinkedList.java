@@ -1,4 +1,4 @@
-package linkedlist;
+package lifei.linkedlist;
 
 
 public class SingleLinkedList {

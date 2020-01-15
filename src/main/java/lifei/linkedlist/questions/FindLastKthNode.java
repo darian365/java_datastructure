@@ -1,7 +1,7 @@
-package linkedlist.questions;
+package lifei.linkedlist.questions;
 
-import linkedlist.NodeItem;
-import linkedlist.SingleLinkedList;
+import lifei.linkedlist.NodeItem;
+import lifei.linkedlist.SingleLinkedList;
 
 public class FindLastKthNode {
 
