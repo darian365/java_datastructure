@@ -3,7 +3,11 @@ package linkedlist;
 
 public class SingleLinkedList {
 
-    private Node head = new Node(0, "");
+    private NodeItem head = new NodeItem(0, "");
+
+    public NodeItem getHead() {
+        return head;
+    }
 
     /**
      * 
@@ -12,9 +16,9 @@ public class SingleLinkedList {
      *一， 找到当前链表的最后一个节点，
      *二， 将最后一个节点的next指向x新的节点
      **/
-    public void add(Node node) {
+    public void add(NodeItem node) {
         // coz head节点是固定的，所以我们需要一个辅助节点从head开始遍历
-        Node temp = head;
+        NodeItem temp = head;
         
         while(true) {
             if (temp.next == null) {
@@ -33,9 +37,9 @@ public class SingleLinkedList {
      * 二，将新节点放到第一个比新节点序号大的位置
      * @param node
      */
-    public void addByOrder(Node node) {
+    public void addByOrder(NodeItem node) {
         // coz 需要一个辅助指针从头位置开始找插入到位置
-        Node temp = head;
+        NodeItem temp = head;
 
         // coz 需要temp位于要插入位置的前一个节点
         // if 已经存在序号，那么将不插入新节点
@@ -56,7 +60,7 @@ public class SingleLinkedList {
             node.next = temp.next;
             temp.next = node;
         } else {
-            System.out.printf("链表中存在序号是%d\n", node.num);
+            System.out.printf("链表中已经存在序号是%d的节点，无法再新增节点\n", node.num);
         }
     }
 
@@ -67,9 +71,9 @@ public class SingleLinkedList {
      * 二，将要更新节点的值更新为新节点的值
      * @param node
      */
-    public void update(Node node) {
+    public void update(NodeItem node) {
         // 需要一个辅助指针从头指针开始遍历
-        Node temp = head;
+        NodeItem temp = head;
 
         // 如果节点存在，flag会被set to be true
         boolean flag = false;
@@ -94,18 +98,31 @@ public class SingleLinkedList {
         }
     }
 
+    /**
+     * 删除节点
+     * 思路：一，通过遍历并比较序号找到要更新的节点
+     * 二，将要删除节点的前一节点直接连接后一节点
+     * 
+     * @param num
+     */
     public void remove(int num) {
-        Node temp = head;
+        // 需要一个辅助指针从头节点开始
+        NodeItem temp = head;
+
+        // 如果节点存在，flag会被set to be true
         boolean flag = false;
 
         while (true) {
+            // 已经到达尾节点
             if (temp.next == null) {
                 break;
             }
+            // 找到了要删除的节点
             if (temp.next.num == num) {
                 flag = true;
                 break;
             }
+            // 没到尾节点，且没找到要删除的节点，则继续向后遍历
             temp = temp.next;
         }
 
@@ -121,7 +138,7 @@ public class SingleLinkedList {
             System.out.println("这是一个空的单向链表");
             return;
         }
-        Node temp = head.next;
+        NodeItem temp = head.next;
         System.out.println("单向链表的元素是：");
         while(true) {
             if (temp == null) {
@@ -134,10 +151,10 @@ public class SingleLinkedList {
 
     public static void main(String[] args) {
 
-        Node n1 = new Node(1, "杰伦");
-        Node n2 = new Node(2, "华健");
-        Node n3 = new Node(3, "志玲");
-        Node n4 = new Node(4, "英九");
+        NodeItem n1 = new NodeItem(1, "杰伦");
+        NodeItem n2 = new NodeItem(2, "华健");
+        NodeItem n3 = new NodeItem(3, "志玲");
+        NodeItem n4 = new NodeItem(4, "英九");
 
         SingleLinkedList sll = new SingleLinkedList();
         sll.add(n2);
@@ -157,8 +174,8 @@ public class SingleLinkedList {
         sll.list();
 
         System.out.println("更新节点开始 ：");
-        sll.update(new Node(2, "建华"));
-        sll.update(new Node(5, "建华~~"));
+        sll.update(new NodeItem(2, "建华"));
+        sll.update(new NodeItem(5, "建华~~"));
         sll.list();
 
         System.out.println("删除节点开始 ：");
@@ -173,24 +190,4 @@ public class SingleLinkedList {
         sll.list();
 
     }
-}
-
-class Node {
-
-    public int num;
-
-    public String data;
-
-    public Node next;
-
-    public Node(int num, String data) {
-        this.num = num;
-        this.data = data;
-        this.next = null;
-    }
-
-    public String toString() {
-        return "Node [num=" + num + ", data=" + data + "]";
-    }
-
 }
