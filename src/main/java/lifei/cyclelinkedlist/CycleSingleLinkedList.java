@@ -64,7 +64,7 @@ public class CycleSingleLinkedList {
     }
 
     /**
-     * 根据用户的输入，计算出节点出环的顺序
+     * 环形链表之约瑟夫问题 根据用户的输入，计算出节点出环的顺序
      * 
      * @param start 从第几个节点开始数数
      * @param count 数了几次
@@ -82,7 +82,7 @@ public class CycleSingleLinkedList {
 
         ListNode helper = first;
 
-        // 需要将helper移到头指针的前一个位置
+        // 需要将helper移到头指针的前一个位置，helper跟在first后面
         while (true) {
             if (helper.next == first) {
                 break;
@@ -90,7 +90,7 @@ public class CycleSingleLinkedList {
             helper = helper.next;
         }
 
-        // 需要将头指针从start位置开始
+        // 需要将头指针从start位置开始，假如start是5，那么重置first从1开始移动4次，helper跟在first后面
         for (int i = 0; i < start - 1; i++) {
             first = first.next;
             helper = helper.next;
@@ -102,6 +102,7 @@ public class CycleSingleLinkedList {
                 break;
             }
 
+            // 假如count是2，那么只需要数1次，因为自己本身数1次
             for (int i = 0; i < count - 1; i++) {
                 first = first.next;
                 helper = helper.next;
