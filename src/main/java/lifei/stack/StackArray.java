@@ -56,6 +56,7 @@ public class StackArray {
             throw new RuntimeException("栈已经空了，无法再出栈");
         }
         int val = array[top];
+        array[top] = 0;
         top--;
         return val;
     }
@@ -72,6 +73,20 @@ public class StackArray {
         for (int i = top; i >= 0; i--) {
             System.out.printf("栈元素是 %d\n", array[i]);
         }
+    }
+
+    /**
+     * 仅读取栈顶的值
+     * 
+     * @param args
+     * @throws Exception
+     */
+    public int peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("栈已空，无元素");
+        }
+
+        return array[top];
     }
 
     public static void main(String[] args) throws Exception {
