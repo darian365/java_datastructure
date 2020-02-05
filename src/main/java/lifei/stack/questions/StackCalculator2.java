@@ -1,6 +1,6 @@
 package lifei.stack.questions;
 
-import lifei.stack.StackArray;
+import lifei.stack.StackLinkedList;
 
 /**
  * 使用栈实现简单计算器功能 
@@ -33,10 +33,13 @@ public class StackCalculator2 {
 
     public static void main(String[] args) {
 
-        StackArray numStack = new StackArray(10);
-        StackArray operStack = new StackArray(10);
+        // StackArray numStack = new StackArray(10);
+        // StackArray operStack = new StackArray(10);
 
-        String formula = "610+20*3-150";
+        StackLinkedList numStack = new StackLinkedList(10);
+        StackLinkedList operStack = new StackLinkedList(10);
+
+        String formula = "7*2*2-5+1-5+3-4";
 
         char ch = ' ';
         int num1, num2;

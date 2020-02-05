@@ -67,6 +67,17 @@ public class StackLinkedList {
     }
 
     /**
+     * 查看栈顶元素
+     */
+    public int peek() {
+        if (isEmpty()) {
+            throw new RuntimeException("栈已经空了，无法查看栈顶元素");
+        }
+        
+        return helper.data;
+    }
+
+    /**
      * 打印栈
      */
     public void printStack() {
