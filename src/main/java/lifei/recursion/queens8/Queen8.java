@@ -17,14 +17,25 @@ package lifei.recursion.queens8;
  */
 public class Queen8 {
 
+    // 定义表示多少种8皇后摆法
+    static int count;
+
+    // 定义表示经过多少次位置验证， 15720次，需要优化，会有讲解
+    static int validateTimes;
+
     // 定义一个max表示共有多少个皇后
     int max = 8;
 
     // 定义数组array, 保存皇后的位置的结果，比如array = {0, 4, 7, 5, 2, 6, 1, 3}
     int[] array = new int[max];
 
-    public static void main(String[] args) {
 
+
+    public static void main(String[] args) {
+        Queen8 queen8 = new Queen8();
+        queen8.place(0);
+        System.out.printf("总共有%d种摆法\n", count);
+        System.out.printf("总共有%d次皇后位置判断", validateTimes);
     }
 
     /**
@@ -35,7 +46,8 @@ public class Queen8 {
      */
     private void place(int n) {
         if (n >= max) {
-            System.out.printf("%d个皇后已摆放完毕", n);
+            print();
+            count++;
             return;
         }
         // 依次每列放入皇后，并判断是否冲突
@@ -51,12 +63,23 @@ public class Queen8 {
     }
 
     /**
+     * 打印皇后位置
+     */
+    private void print() {
+        for (int a : array) {
+            System.out.print(a + " ");
+        }
+        System.out.println();
+    }
+
+    /**
      * 查看当我们放置第n个皇后，检测该皇后是否和已拜访的皇后冲突，即不在同一行或同一列或同一斜线
      * 
      * @param n 第n个皇后
      * @return
      */
     private boolean validate(int n) {
+        validateTimes++;
         for(int i = 0; i < n; i ++) {
             // 如果是同一列
             if (array[i] == array[n]) {
