@@ -48,7 +48,7 @@ public class SelectSort extends AbsAlgorithmExplain {
     }
 
     @Override
-    protected void coreIdea() {
+    protected void introduce() {
         System.out.println("\n选择排序的思路是： (原文)：");
         System.out.println("第一次从arr[0]~arr[n-1]中选取最小值，与arr[0]交换。");
         System.out.println("第二次从arr[1]~arr[n-1]中选取最小值，与arr[1]交换。");
@@ -86,5 +86,9 @@ public class SelectSort extends AbsAlgorithmExplain {
             }
             System.out.printf("第%d次循环后的结果是%s\n", i + 1, Arrays.toString(arr));
         }
+    }
+
+    @Override
+    protected void basicIdea() {
     }
 }

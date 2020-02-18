@@ -5,14 +5,18 @@ public abstract class AbsAlgorithmExplain {
     public void run() {
         execute();
 
-        coreIdea();
+        introduce();
+
+        basicIdea();
 
         extendedIdea();
     }
 
     protected abstract void extendedIdea();
 
-    protected abstract void coreIdea();
+    protected abstract void basicIdea();
+
+    protected abstract void introduce();
 
     protected abstract void execute();
 }
