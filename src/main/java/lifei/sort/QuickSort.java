@@ -1,5 +1,7 @@
 package lifei.sort;
 
+import java.util.Arrays;
+
 public class QuickSort {
 
     static void sort(int[] arr) {
@@ -53,17 +55,17 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-        int size = 10000000;
-        int[] arr = new int[size];
-
-        for (int i = 0; i < size; i++) {
-            arr[i] = (int) (Math.random() * (size * 10));
-        }
-
+        // int size = 10000000;
+        // int[] arr = new int[size];
+        //
+        // for (int i = 0; i < size; i++) {
+        // arr[i] = (int) (Math.random() * (size * 10));
+        // }
+        int[] arr = { 21, 3, 7, 16, 5, 30, 8, 56, 9 };
         long start = System.currentTimeMillis();
         quickSort(arr, 0, arr.length - 1);
         long end = System.currentTimeMillis();
-
-        System.out.printf("快速排序处理%d个元素的数组耗时%d秒", size, (end - start) / 1000);
+        System.out.println(Arrays.toString(arr));
+        // System.out.printf("快速排序处理%d个元素的数组耗时%d秒", size, (end - start) / 1000);
     }
 }

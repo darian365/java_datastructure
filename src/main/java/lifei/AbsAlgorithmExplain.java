@@ -3,13 +3,14 @@ package lifei;
 public abstract class AbsAlgorithmExplain {
 
     public void run() {
-        execute();
 
         introduce();
 
         basicIdea();
 
         extendedIdea();
+
+        execute();
     }
 
     protected abstract void extendedIdea();

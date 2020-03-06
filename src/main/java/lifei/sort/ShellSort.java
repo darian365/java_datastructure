@@ -3,7 +3,8 @@ package lifei.sort;
 /**
  * “希尔排序也是一种插入排序，它是简单插入排序经过改进后的一个更高效的版本，也成为缩小增量排序
  * 
- * “基本思想： “希尔排序是把记录按下标的一定增量分组，对没组使用直接插入排序算法，随着增量逐渐减少， “每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止
+ * “基本思想： “希尔排序是把记录按下标的一定增量分组，对没组使用直接插入排序算法，随着增量逐渐减少，
+ * “每组包含的关键词越来越多，当增量减至1时，整个文件恰被分成一组，算法便终止
  * 
  * @author Fei.Li
  *
@@ -34,7 +35,8 @@ public class ShellSort {
                     }
                 }
             }
-            // System.out.printf("第%d轮排序后的数组是%s\n", (++count), Arrays.toString(arr));
+            // System.out.printf("第%d轮排序后的数组是%s\n", (++count),
+            // Arrays.toString(arr));
         }
     }
 
@@ -76,10 +78,10 @@ public class ShellSort {
         }
 
         long before = System.currentTimeMillis();
-        swapSort(arr);
-        // moveSort(arr);
+        // swapSort(arr);
+        moveSort(arr);
         long after = System.currentTimeMillis();
-        System.out.printf("排序所花的时间是%d豪秒\n", after - before);
+        System.out.printf("排序所花的时间是%d豪秒\n", (after - before));
 
     }
 }
