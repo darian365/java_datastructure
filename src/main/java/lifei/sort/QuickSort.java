@@ -2,7 +2,9 @@ package lifei.sort;
 
 import java.util.Arrays;
 
-public class QuickSort {
+import lifei.AbsAlgorithmExplain;
+
+public class QuickSort extends AbsAlgorithmExplain {
 
     static void sort(int[] arr) {
 
@@ -67,5 +69,29 @@ public class QuickSort {
         long end = System.currentTimeMillis();
         System.out.println(Arrays.toString(arr));
         // System.out.printf("快速排序处理%d个元素的数组耗时%d秒", size, (end - start) / 1000);
+    }
+
+    @Override
+    protected void extendedIdea() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    protected void basicIdea() {
+        // TODO Auto-generated method stub
+
+    }
+
+    @Override
+    protected void introduce() {
+        System.out.println("通过一趟排序，将要排序的数据分割成独立的两部分，\n其中一部分的所有数据都比另外一部分的所有数据都要小，\n然后按照此方法对这两部分数据分别\n进行快速排序，整个");
+        System.out.println("排序过程可以递归进行，以此达到整个数组变成有序序列");
+    }
+
+    @Override
+    protected void execute() {
+        // TODO Auto-generated method stub
+
     }
 }

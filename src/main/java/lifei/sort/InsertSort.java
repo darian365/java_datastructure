@@ -3,10 +3,8 @@ package lifei.sort;
 import java.util.Arrays;
 
 /**
- * “基本思想：
- * “把n个待排序的元素看成一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，
- * “排序过程中每次从无序表中取出第一个元素，把它的排序码依次和有序表元素的排序码进行比较，将它插入到
- * “有序表中的适当位置，使之成为新的有序表
+ * “基本思想： “把n个待排序的元素看成一个有序表和一个无序表，开始时有序表中只包含一个元素，无序表中包含n-1个元素，
+ * “排序过程中每次从无序表中取出第一个元素，把它的排序码依次和有序表元素的排序码进行比较，将它插入到 “有序表中的适当位置，使之成为新的有序表
  * 
  * @author Fei.Li
  *
@@ -17,6 +15,8 @@ public class InsertSort {
         if (arr == null || arr.length == 0) {
             return;
         }
+
+        int countOfExchange = 0;
 
         for (int i = 1; i < arr.length; i++) {
             // “定义待插入的数，默认是i位置
@@ -37,7 +37,10 @@ public class InsertSort {
 
             // “当while循环结束时，说明插入位置找到了，即insertIndex + 1
             arr[insertIndex + 1] = insertValue;
+            countOfExchange++;
         }
+
+        System.out.printf("countOfExchange : %d\n", countOfExchange);
     }
 
     public static void main(String[] args) {
@@ -46,13 +49,14 @@ public class InsertSort {
         System.out.println("排序后的数组是 :" + Arrays.toString(arr));
 
         System.out.println("对长度为10万的数组排序");
-        arr = new int[100000];
+        arr = new int[20];
         for (int i = 0; i < arr.length; i++) {
             arr[i] = (int) (Math.random() * 100000);
         }
         long start = System.currentTimeMillis();
         sort(arr);
         long end = System.currentTimeMillis();
-        System.out.println("对长度10万的数组排序耗时是[ %d]秒: " + (end - start) / 1000); // 4 秒
+        System.out.println("对长度10万的数组排序耗时是[ %d]秒: " + (end - start) / 1000); // 4
+                                                                             // 秒
     }
 }

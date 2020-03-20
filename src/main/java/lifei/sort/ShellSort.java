@@ -1,5 +1,7 @@
 package lifei.sort;
 
+import java.util.Arrays;
+
 /**
  * “希尔排序也是一种插入排序，它是简单插入排序经过改进后的一个更高效的版本，也成为缩小增量排序
  * 
@@ -51,36 +53,42 @@ public class ShellSort {
             return;
         }
 
-        // ‘增量gap，并逐步地缩小增量
+        int countOfExchange = 0;
+
+        // handle the gap of incremental and eliminate the incremental each time
         for (int gap = arr.length / 2; gap > 0; gap /= 2) {
-            // ‘从第gap个元素，逐个对其所在的组进行 直接插入排序
+            // use insertion sort for each group starting from the gap-th item
             for (int i = gap; i < arr.length; i++) {
                 int j = i;
                 int tmp = arr[j];
                 if (arr[j] < arr[j - gap]) {
                     while (j - gap >= 0 && tmp < arr[j - gap]) {
-                        // ‘移动
+                        // move the smaller value from right to left
                         arr[j] = arr[j - gap];
+                        // do the comparison gap by gap
                         j -= gap;
                     }
-                    // ‘当推出while后，就给temp找到插入的位置
+                    // find the right position to insert the value
                     arr[j] = tmp;
+                    countOfExchange++;
                 }
             }
         }
+        System.out.printf("countOfExchange : %d\n", countOfExchange);
     }
 
     public static void main(String[] args) {
-        int size = 100000;
+        int size = 20;
         int[] arr = new int[size];
         for (int i = 0; i < size; i++) {
             arr[i] = (int) (Math.random() * (size * 10));
         }
-
+        arr = new int[] { 12, 9, 4, 99, 120, 1, 3, 10, 23, 45, 75, 69, 31, 88, 101, 14, 29, 91, 2, 0, 77 };
         long before = System.currentTimeMillis();
         // swapSort(arr);
         moveSort(arr);
         long after = System.currentTimeMillis();
+        System.out.println(Arrays.toString(arr));
         System.out.printf("排序所花的时间是%d豪秒\n", (after - before));
 
     }
